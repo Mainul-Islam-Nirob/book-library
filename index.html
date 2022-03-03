@@ -8,10 +8,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Set up complete!</h1>
+    <button class="button" id="addBook">+ Add Book</button>
+    <div class="container" id="container">
     </div>
 
+    <!-- Add Book Modal Form -->
+    <!-- <div class="modal-container" id="modalContainer"> -->
+        <div class="addBookModal" id="bookFormModal">
+            <div class="modalContent">
+                <div class="closeBtn" id="closeBtn">&times;</div>
+                <h1 class="modal-title">Add New Book</h1>
+                <form action="#" id="modal-form">
+                    <input type="text" name="title" id="title" placeholder="Title">
+                    <input type="text" name="author" id="author" placeholder="Author">
+                    <input type="number" name="pages" id="pages" placeholder="Pages">
+                    <div>
+                        <label for="read">Already Read?</label> <input type="checkbox" name="read" id="read">
+                    </div>
+                    <button class="button" type="submit">Add</button>
+                </form>
+            </div>
+        </div>
+    <!-- </div> -->
+    
     <script src="index.js"></script>
 </body>
 </html>
