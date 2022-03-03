@@ -7,15 +7,19 @@ let removeBook = document.getElementById("remove-book");
 
 let myLibrary = [];
 
+// add uniqe id here ******************************************************
 function Book (title, author, pages, isRead) {
+    this.id = '_' + Math.random().toString(36).substring(2, 11);
     this.title = title
     this.author = author
     this.pages = pages
     this.isRead = isRead
     this.info = function() {
-        return `${title} by ${author}, ${pages} pages, ${isRead ? "already read" : "not read yet"}`
+        return `${this.id} by ${author}, ${pages} pages, ${isRead ? "already read" : "not read yet"}`
     }
 }
+
+// console.log(new Book("title", "author", "pages", true));
 
 function addBookToLibrary(title, author, pages, isRead) {
     let book = new Book(title, author, pages, isRead);
@@ -30,16 +34,15 @@ function displayBook() {
         let bookContainer = document.createElement("div");
         bookContainer.classList.add("book-card");
         bookContainer.setAttribute("data-index", `${index}`)
-        bookContainer.innerHTML = `<h1 class="title">${book.title}</h1>
+        bookContainer.innerHTML = `<h1 class="title">${book.id}</h1>
                                 <h3 class="author">${book.author}</h3>
                                 <h5 class="pages">${book.pages}</h5>
                                 <p className="info">${book.info()}</p>
-                                <button id="toggle-read">${book.isRead ? "Read" : "Not Read"}</button>
-                                <button id="remove-book">Remove</button`
+                                <button onClick="handleToggleRead('${book.id}')" id="toggle-read">${book.isRead ? "Read" : "Not Read"}</button>
+                                <button onClick="handleRemoveBook('${book.id}')" id="remove-book">Remove</button>`;
         container.appendChild(bookContainer);
     })
 }
-
 
 
 function openModal() {
@@ -56,6 +59,7 @@ function closeModalOnOutSideClick(e) {
     }
 }
 
+
 function handleAddBook(e) {
     e.preventDefault();
 
@@ -68,8 +72,19 @@ function handleAddBook(e) {
     modalForm.reset();
     closeModal();
     displayBook();
-
 }
+
+function handleToggleRead(id) {
+    console.log("toggle read", id);
+    
+}
+
+function handleRemoveBook(id) {
+    console.log("remove book", id);
+    myLibrary = myLibrary.filter(book => book.id != id);
+    displayBook();
+}
+
 
 
 
