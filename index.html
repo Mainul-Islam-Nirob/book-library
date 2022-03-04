@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button class="button" id="addBook">+</button>
+    <button class="add-modal-button" id="addBook">+</button>
     <div class="container" id="container"></div>
 
     <!-- Add Book Modal Form -->
@@ -16,15 +16,15 @@
         <div class="addBookModal" id="bookFormModal">
             <div class="modalContent">
                 <div class="closeBtn" id="closeBtn">&times;</div>
-                <h1 class="modal-title">Add New Book</h1>
+                <h1 class="modal-title title">Add New Book</h1>
                 <form action="#" id="modal-form">
-                    <input type="text" name="title" id="title" placeholder="Title">
-                    <input type="text" name="author" id="author" placeholder="Author">
-                    <input type="number" min="20" name="pages" id="pages" placeholder="Pages">
-                    <div>
+                    <input type="text" required name="title" id="title" placeholder="Title">
+                    <input type="text" required name="author" id="author" placeholder="Author">
+                    <input type="number" required min="20" name="pages" id="pages" placeholder="Pages">
+                    <div class="check-read">
                         <label for="read">Already Read?</label> <input type="checkbox" name="read" id="read">
                     </div>
-                    <button class="button">Add</button>
+                    <button class="btn">Add Book</button>
                 </form>
             </div>
         </div>

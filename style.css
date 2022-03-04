@@ -26,7 +26,7 @@ body {
      height: 100%;
 }
 
-.button {
+.add-modal-button {
     background-color: var(--red);
     width: 100px;
     height: 100px;
@@ -42,7 +42,7 @@ body {
     transform: translateX(-50%);
 }
 
-.button:hover {
+.add-modal-button:hover {
     transform: translateX(-50%) scale(1.05);
 
 }
@@ -55,7 +55,7 @@ body {
 }
 
 .book-card {
-    min-height: 350px;
+    min-height: 380px;
     background-color: var(--lime);
     border: 2px solid var(--red);
     padding: 20px;
@@ -137,43 +137,134 @@ body {
     width: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.479);
-    /* display: flex; */
     align-items: center;
     justify-content: center;
     
 }
 
 .modalContent {
-    background-color: #f4f4f4;
-    /* margin: 0 auto; */
+    position: relative;
+    text-align: center;
+    background-color: var(--white);
     padding: 20px;
-    width: 300px;
+    width: 320px;
     height: 400px;
+    border-radius: 10px;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),
                 0 7px 20px 0 rgba(0, 0, 0, 0.17);
     display: flex;
     flex-direction: column;
-    /* align-self: center; */
-    animation-name: modalopen;
+    animation-name: modalOpen;
     animation-duration: .5s;
 }
 
 .closeBtn {
+    position: absolute;
+    top: 0;
+    right: 10px;
     color: gray;
-    /* display: flex; */
-    /* justify-self: center; */
-    align-self: flex-end;
-    font-size: 35px;
+    font-size: 45px;
     font-weight: bolder;
 }
 
 .closeBtn:hover, .closeBtn:focus {
-    color: coral;
+    color: var(--btn-danger-hover);
     cursor: pointer;
 }
 
 
-@keyframes modalopen {
+#modal-form > input {
+
+    padding: 5px 10px;
+    font-size: 20px;
+    margin: 5px 0;
+    color: #333;
+    border-radius: 5px;
+    border-color: rgba(197, 182, 182, 0.555);
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px; 
+    width: 100%;
+}
+
+#modal-form > input:invalid:focus {
+    border: 2px solid var(--btn-danger);
+}
+
+#modal-form > input:valid:focus {
+    border: 2px solid green;
+}
+
+.check-read {
+    font-size: 25px;
+    margin: 10px;
+    color: #333;
+     display: grid;
+     grid-template-columns: 70% 1em;
+     gap: 0.5em;
+     /* align-self: center; */
+}
+
+#modal-form > .btn {
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 35px;
+    font-size: 22px;
+    background-color: var(--btn-danger);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+
+}
+
+#modal-form > .btn:hover {
+    background-color: var(--btn-danger-hover);
+    cursor: pointer;
+}
+
+    /* Custom Check Box Style */
+input[type="checkbox"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    appearance: none;
+    /* For iOS < 15 to remove gradient background */
+    background-color: #fff;
+    /* Not removed via appearance */
+    margin: 0;
+
+     display: grid;
+     place-content: center;
+
+    font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em coral;
+  /* background-color: red; */
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+input[type="checkbox"]:focus {
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: max(2px, 0.15em);
+}
+
+
+@keyframes modalOpen {
     from {opacity: 0; transform: scale(0);}
     to {opacity: 1; transform: scale(1);}
 }
