@@ -8,9 +8,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button class="button" id="addBook">+ Add Book</button>
-    <div class="container" id="container">
-    </div>
+    <button class="button" id="addBook">+</button>
+    <div class="container" id="container"></div>
 
     <!-- Add Book Modal Form -->
     <!-- <div class="modal-container" id="modalContainer"> -->
@@ -19,9 +18,9 @@
                 <div class="closeBtn" id="closeBtn">&times;</div>
                 <h1 class="modal-title">Add New Book</h1>
                 <form action="#" id="modal-form">
-                    <input type="text" required name="title" id="title" placeholder="Title">
-                    <input type="text" required name="author" id="author" placeholder="Author">
-                    <input type="number" required min="20" name="pages" id="pages" placeholder="Pages">
+                    <input type="text" name="title" id="title" placeholder="Title">
+                    <input type="text" name="author" id="author" placeholder="Author">
+                    <input type="number" min="20" name="pages" id="pages" placeholder="Pages">
                     <div>
                         <label for="read">Already Read?</label> <input type="checkbox" name="read" id="read">
                     </div>
