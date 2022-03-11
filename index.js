@@ -21,12 +21,6 @@ Book.prototype.toggleRead = function toggleRead() {
     this.isRead = !this.isRead;
 }
 
-// let book1 = new Book("title", "author", "pages", true);
-
-// console.log(book1.toggleRead(), book1);
-// console.log(book1.toggleRead(), book1);
-// console.log(book1.toggleRead(), book1);
-
 
 function addBookToLibrary(title, author, pages, isRead) {
     let book = new Book(title, author, pages, isRead);
@@ -73,6 +67,10 @@ function displayBook() {
             readBtn.classList.add("not-read-btn");
         }
 
+
+        readBtn.addEventListener("click", () => handleToggleRead(book.id));
+        removeBtn.addEventListener("click", () => handleRemoveBook(book.id));
+
         bookDetail.appendChild(title);
         bookDetail.appendChild(author);
         bookDetail.appendChild(pages);
@@ -80,21 +78,6 @@ function displayBook() {
         btnGroup.appendChild(removeBtn);
         bookCard.appendChild(bookDetail);
         bookCard.appendChild(btnGroup);
-        
-
-
-        // bookContainer.classList.add("book-card");
-        // bookContainer.setAttribute("data-index", `${index}`)
-        // bookContainer.innerHTML = `
-        //                         <div class="book-detail">
-        //                         <h1 class="title">${book.title}</h1>
-        //                         <h3 class="author">by- ${book.author}</h3>
-        //                         <h5 class="pages">${book.pages} Pages</h5>
-        //                         </div>
-        //                         <div class="btn-group">
-        //                         <button class="btn" onClick="() => handleToggleRead('${book.toggleRead()}')" id="toggle-read">${book.isRead ? "Read" : "Not Read"}</button>
-        //                         <button class="btn" onClick="handleRemoveBook('${book.id}')" id="remove-book">Remove</button>
-        //                         </div>`;
 
         container.appendChild(bookCard);
     })
@@ -132,10 +115,13 @@ function handleAddBook(e) {
     displayBook();
 }
 
-function handleToggleRead(book) {
-    console.log("toggle read", book);
-    // book.toggleRead();
-    // myLibrary.find(book => book.id == id)
+function handleToggleRead(id) {
+    console.log("toggle read", id);
+    let toggleBook = myLibrary.find(book => book.id == id)
+    console.log(toggleBook, "1");
+    toggleBook.toggleRead();
+    console.log(toggleBook, "2");
+    displayBook();
     
 }
 
