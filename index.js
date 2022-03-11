@@ -20,14 +20,12 @@ Book.prototype.toggleRead = function toggleRead() {
     this.isRead = !this.isRead;
 }
 
-
 function addBookToLibrary(title, author, pages, isRead) {
     let book = new Book(title, author, pages, isRead);
     myLibrary.push(book);
 }
 
-
-function bookCard(book) {
+function createBookCard(book) {
     const bookCard = document.createElement("div");
     const bookDetail = document.createElement("div");
     const title = document.createElement("h1");
@@ -49,7 +47,6 @@ function bookCard(book) {
     readBtn.setAttribute("id", "toggle-read");
     removeBtn.setAttribute("id", "remove-book");
 
-
     title.textContent = book.title;
     author.textContent = book.author;
     pages.textContent = `${book.pages} Pages`;
@@ -62,7 +59,6 @@ function bookCard(book) {
         readBtn.textContent = "Not Read";
         readBtn.classList.add("not-read-btn");
     }
-
 
     readBtn.addEventListener("click", () => handleToggleRead(book.id));
     removeBtn.addEventListener("click", () => handleRemoveBook(book.id));
@@ -83,14 +79,12 @@ const resetBooks = () => {
     container.innerHTML = "";
 }
 
-function displayBook() {
+function renderBooks() {
     resetBooks();
     myLibrary.map((book) => {
-        bookCard(book);
+        createBookCard(book);
     })
 }
-
-
 
 function openModal() {
     modal.style.display = "flex";
@@ -116,33 +110,47 @@ function handleAddBook(e) {
     let read = e.target.read.checked;
 
     addBookToLibrary(title, author, pages, read);
+    saveBook();
     modalForm.reset();
     closeModal();
-    displayBook();
+    renderBooks();
 }
 
 function handleToggleRead(id) {
     let toggleBook = myLibrary.find(book => book.id == id)
     toggleBook.toggleRead();
-    displayBook();
-    
+    saveBook();
+    renderBooks();
 }
 
 function handleRemoveBook(id) {
     myLibrary = myLibrary.filter(book => book.id != id);
-    displayBook();
+    saveBook();
+    renderBooks();
 }
 
-window.addEventListener("load", displayBook);
+// saving book in local storage
+function saveBook() {
+    localStorage.setItem("library", JSON.stringify(myLibrary));
+}
+
+//showing book from local storage
+function displayBooks() {
+    if (!localStorage.library) {
+        renderBooks();
+    } else {
+        let books = localStorage.getItem("library");
+        books = JSON.parse(books);
+        myLibrary = books;
+        renderBooks();
+    }
+}
+
+window.addEventListener("load", displayBooks);
 addBookBtn.addEventListener("click", openModal)
 modalCloseBtn.addEventListener("click", closeModal)
 window.addEventListener("click", closeModalOnOutSideClick);
 modalForm.addEventListener("submit", handleAddBook);
-
-
-
-
-
 
 
 
