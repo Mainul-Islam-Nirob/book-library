@@ -16,9 +16,9 @@ function Book (title, author, pages, isRead) {
     this.isRead = isRead
 }
 
-Book.prototype.toggleRead = function toggleRead() {
-    this.isRead = !this.isRead;
-}
+// Book.prototype.toggleRead = function toggleRead() {
+//     this.isRead = !this.isRead;
+// }
 
 function addBookToLibrary(title, author, pages, isRead) {
     let book = new Book(title, author, pages, isRead);
@@ -90,10 +90,12 @@ function openModal() {
     modal.style.display = "flex";
 }
 
+//close modal after clicking close button
 function closeModal() {
     modal.style.display = "none";
 }
 
+//close modal after clicking outside of the modal
 function closeModalOnOutSideClick(e) {
     if (e.target == modal) {
         modal.style.display = "none";
@@ -117,8 +119,11 @@ function handleAddBook(e) {
 }
 
 function handleToggleRead(id) {
-    let toggleBook = myLibrary.find(book => book.id == id)
-    toggleBook.toggleRead();
+    let toggleBook = myLibrary.find(book => book.id == id);
+    console.log(toggleBook, "1");
+    toggleBook.isRead = !toggleBook.isRead;
+    console.log(toggleBook, "2");
+    // toggleBook.toggleRead();
     saveBook();
     renderBooks();
 }
