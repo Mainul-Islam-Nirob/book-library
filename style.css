@@ -15,7 +15,7 @@
 }
 
 * {
-    margin: 0
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
@@ -82,7 +82,9 @@ body {
 .pages {
     color: #333;
     font-size: 35px;
+    margin-top: 0;
     margin-bottom: 20px;
+
 }
 
 .btn-group {
@@ -108,24 +110,35 @@ body {
 #toggle-read {
     margin-bottom: 10px;
     margin-top: auto;
-    background-color: var(--btn-success);
-
 }
 
 #remove-book {
     background-color: var(--btn-danger);
-
 }
 
-#toggle-read:hover {
-    background-color: var(--btn-success-hover);
-}
 
 #remove-book:hover {
     background-color: var(--btn-danger-hover);
 
 }
 
+.not-read-btn {
+    background-color: var(--btn-danger);
+}
+
+.read-btn {
+    background-color: var(--btn-success);
+}
+
+.read-btn:hover {
+    background-color: var(--btn-danger-hover);
+
+}
+
+.not-read-btn:hover {
+    background-color: var(--btn-success-hover);
+
+}
 /* Modal style */
 .addBookModal {
     display: none;
@@ -229,17 +242,15 @@ input[type="checkbox"] {
     background-color: #fff;
     /* Not removed via appearance */
     margin: 0;
-
-     display: grid;
-     place-content: center;
-
+    display: grid;
+    place-content: center;
     font: inherit;
-  color: currentColor;
-  width: 1.15em;
-  height: 1.15em;
-  border: 0.15em solid currentColor;
-  border-radius: 0.15em;
-  transform: translateY(-0.075em);
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
 }
 
 input[type="checkbox"]::before {
@@ -248,7 +259,7 @@ input[type="checkbox"]::before {
     height: 0.65em;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em coral;
+    box-shadow: inset 1em 1em var(--red);
   /* background-color: red; */
     transform-origin: bottom left;
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);

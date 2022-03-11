@@ -4,6 +4,8 @@ let modalCloseBtn = document.getElementById("closeBtn")
 let modalForm = document.getElementById("modal-form");
 let toggleRead = document.getElementById("toggle-read");
 let removeBook = document.getElementById("remove-book");
+let container = document.getElementById("container")
+
 
 let myLibrary = [];
 
@@ -17,14 +19,13 @@ function Book (title, author, pages, isRead) {
 
 Book.prototype.toggleRead = function toggleRead() {
     this.isRead = !this.isRead;
-    console.log("toggle done");
 }
 
-let book1 = new Book("title", "author", "pages", true);
+// let book1 = new Book("title", "author", "pages", true);
 
-console.log(book1.toggleRead(), book1);
-console.log(book1.toggleRead(), book1);
-console.log(book1.toggleRead(), book1);
+// console.log(book1.toggleRead(), book1);
+// console.log(book1.toggleRead(), book1);
+// console.log(book1.toggleRead(), book1);
 
 
 function addBookToLibrary(title, author, pages, isRead) {
@@ -34,24 +35,71 @@ function addBookToLibrary(title, author, pages, isRead) {
 
 
 function displayBook() {
-    let container = document.getElementById("container")
     container.innerHTML = ""; //Removing all child elements of container before adding new book
-    myLibrary.map((book, index) => {
-        let bookContainer = document.createElement("div");
-        bookContainer.classList.add("book-card");
-        bookContainer.setAttribute("data-index", `${index}`)
-        bookContainer.innerHTML = `
-                                <div class="book-detail">
-                                <h1 class="title">${book.title}</h1>
-                                <h3 class="author">by- ${book.author}</h3>
-                                <h5 class="pages">${book.pages} Pages</h5>
-                                </div>
-                                <div class="btn-group">
-                                <button class="btn" onClick="() => handleToggleRead('${book.toggleRead()}')" id="toggle-read">${book.isRead ? "Read" : "Not Read"}</button>
-                                <button class="btn" onClick="handleRemoveBook('${book.id}')" id="remove-book">Remove</button>
-                                </div>`;
-        container.appendChild(bookContainer);
+
+    myLibrary.map((book) => {
+        const bookCard = document.createElement("div");
+        const bookDetail = document.createElement("div");
+        const title = document.createElement("h1");
+        const author = document.createElement("h3");
+        const pages = document.createElement("h5");
+        const btnGroup = document.createElement("div");
+        const readBtn = document.createElement("button");
+        const removeBtn = document.createElement("button");
+
+        bookCard.classList.add("book-card");
+        bookDetail.classList.add("book-detail");
+        title.classList.add("title");
+        author.classList.add("author");
+        pages.classList.add("pages");
+        btnGroup.classList.add("btn-group");
+        readBtn.classList.add("btn");
+        removeBtn.classList.add("btn");
+
+        readBtn.setAttribute("id", "toggle-read");
+        removeBtn.setAttribute("id", "remove-book");
+
+
+        title.textContent = book.title;
+        author.textContent = book.author;
+        pages.textContent = `${book.pages} Pages`;
+        removeBtn.textContent = "Remove"
+
+        if (book.isRead) {
+            readBtn.textContent = "Read";
+            readBtn.classList.add("read-btn");
+        } else {
+            readBtn.textContent = "Not Read";
+            readBtn.classList.add("not-read-btn");
+        }
+
+        bookDetail.appendChild(title);
+        bookDetail.appendChild(author);
+        bookDetail.appendChild(pages);
+        btnGroup.appendChild(readBtn);
+        btnGroup.appendChild(removeBtn);
+        bookCard.appendChild(bookDetail);
+        bookCard.appendChild(btnGroup);
+        
+
+
+        // bookContainer.classList.add("book-card");
+        // bookContainer.setAttribute("data-index", `${index}`)
+        // bookContainer.innerHTML = `
+        //                         <div class="book-detail">
+        //                         <h1 class="title">${book.title}</h1>
+        //                         <h3 class="author">by- ${book.author}</h3>
+        //                         <h5 class="pages">${book.pages} Pages</h5>
+        //                         </div>
+        //                         <div class="btn-group">
+        //                         <button class="btn" onClick="() => handleToggleRead('${book.toggleRead()}')" id="toggle-read">${book.isRead ? "Read" : "Not Read"}</button>
+        //                         <button class="btn" onClick="handleRemoveBook('${book.id}')" id="remove-book">Remove</button>
+        //                         </div>`;
+
+        container.appendChild(bookCard);
     })
+
+
 }
 
 
