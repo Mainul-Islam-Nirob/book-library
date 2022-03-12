@@ -18,9 +18,9 @@ Have to implement an online library where people can add, remove, and update boo
 
 ### Solution Screenshot
 The final output:
-![Desktop-view](#)
-![Tablet-view](#)
-![Mobile-view](#)
+![Desktop-view](./img/desktop.png)
+![Tablet-view](./img/tablet.png)
+![Mobile-view](./img/mobile.png)
 
 ### Links
 Live Site URL: [Live site of the challenge hosted here](https://mainul-islam-nirob.github.io/book-library/)
