@@ -18,8 +18,11 @@ Have to implement an online library where people can add, remove, and update boo
 
 ### Solution Screenshot
 The final output:
+- Desktop-View
 ![Desktop-view](./img/desktop.png)
+- Tablet-View
 ![Tablet-view](./img/tablet.png)
+- Mobile-View
 ![Mobile-view](./img/mobile.png)
 
 ### Links
