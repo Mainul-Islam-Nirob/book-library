@@ -23,14 +23,15 @@ The final output:
 ![Mobile-view](#)
 
 ### Links
-Live Site URL: [Live site of the challenge hosted here](#)
+Live Site URL: [Live site of the challenge hosted here](https://mainul-islam-nirob.github.io/book-library/)
 
 ### Built with
 - HTML5
 - CSS
     - FlexBox
     - Grid
-- Basic JavaScript
+- JavaScript
+  - Objects and Object Constructors
 - Local Storage
 
 ### What I learned
@@ -39,5 +40,5 @@ Live Site URL: [Live site of the challenge hosted here](#)
 - etc
 
 ## Author
-- Website - Well I haven't made my profile portfolio, gonna make it sooon when I know a lot of stuffs
+- Website - Well I haven't made my portfolio, gonna make it soon when I know a lot of stuffs.
 - LinkedIn - [@mainul islam](https://www.linkedin.com/in/mainul-islam-nirob/)

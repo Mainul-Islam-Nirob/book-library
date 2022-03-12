@@ -16,9 +16,6 @@ function Book (title, author, pages, isRead) {
     this.isRead = isRead
 }
 
-// Book.prototype.toggleRead = function toggleRead() {
-//     this.isRead = !this.isRead;
-// }
 
 function addBookToLibrary(title, author, pages, isRead) {
     let book = new Book(title, author, pages, isRead);
@@ -120,10 +117,7 @@ function handleAddBook(e) {
 
 function handleToggleRead(id) {
     let toggleBook = myLibrary.find(book => book.id == id);
-    console.log(toggleBook, "1");
     toggleBook.isRead = !toggleBook.isRead;
-    console.log(toggleBook, "2");
-    // toggleBook.toggleRead();
     saveBook();
     renderBooks();
 }
