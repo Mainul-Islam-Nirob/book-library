@@ -8,12 +8,14 @@ const container = document.getElementById("container")
 
 let myLibrary = [];
 
-function Book (title, author, pages, isRead) {
-    this.id = '_' + Math.random().toString(36).substring(2, 11);
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.isRead = isRead
+class Book{
+    constructor(title, author, pages, isRead) {
+        this.id = '_' + Math.random().toString(36).substring(2, 11);
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.isRead = isRead
+    }
 }
 
 
