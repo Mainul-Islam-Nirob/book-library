@@ -35,6 +35,7 @@ Live Site URL: [Live site of the challenge hosted here](https://mainul-islam-nir
     - Grid
 - JavaScript
   - Objects and Object Constructors
+  - Class
 - Local Storage
 
 ### What I learned
