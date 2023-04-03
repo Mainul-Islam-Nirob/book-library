@@ -36,16 +36,20 @@ body {
     border-radius: 50%;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
     rgba(17, 17, 26, 0.05) 0px 8px 32px;
-    margin: 20px auto; 
-    display: block; 
+    margin: 0 auto; 
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%); 
+    z-index: 1;
   }
 
 .add-modal-button:hover {
-    transform: scale(1.05);
-
+    transform: translate(-50%) scale(1.05);
 }
 
 .container {
+    position: relative;
+    top: 120px; /* adjust this value as needed */
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
