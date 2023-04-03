@@ -36,14 +36,12 @@ body {
     border-radius: 50%;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
     rgba(17, 17, 26, 0.05) 0px 8px 32px;
-    margin: 20px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-}
+    margin: 20px auto; 
+    display: block; 
+  }
 
 .add-modal-button:hover {
-    transform: translateX(-50%) scale(1.05);
+    transform: scale(1.05);
 
 }
 
